@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - Mariano Salas Nava</title>
+   <style>
+   :root {
+  /* Variables para modo oscuro (por defecto) */
+  --azul: #1e90ff;
+  --negro: #111111;
+  --gris-oscuro: #1f1f1f;
+  --blanco: #f1f1f1;
+
+  /* Variables para modo claro (se usan cuando está la clase .light-mode) */
+  --background-color: var(--negro);
+  --text-color: var(--blanco);
+  --header-bg: var(--gris-oscuro);
+  --header-text: #ccc;
+  --proyecto-bg: var(--gris-oscuro);
+  --btn-bg: var(--azul);
+  --btn-color: var(--blanco);
+  --footer-bg: #000;
+  --footer-color: #888;
+  --border-color: var(--azul);
+  --box-shadow-color: rgba(30, 144, 255, 0.1);
+}
+
+/* Variables para modo claro */
+body.light-mode {
+  --background-color: #f1f1f1;
+  --text-color: #111111;
+  --header-bg: #e0e0e0;
+  --header-text: #555;
+  --proyecto-bg: #ffffff;
+  --btn-bg: #1e90ff;
+  --btn-color: #f1f1f1;
+  --footer-bg: #ddd;
+  --footer-color: #444;
+  --border-color: #1e90ff;
+  --box-shadow-color: rgba(30, 144, 255, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  background-color: var(--header-bg);
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--header-text);
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+section {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  color: var(--azul);
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.proyecto {
+  background: var(--proyecto-bg);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid var(--border-color);
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li::before {
+  content: "✔ ";
+  color: var(--azul);
+  margin-right: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #0f6dc4;
+}
+
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-color);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+margin: 1% 1% 0 0;
+float: right;
+}
+
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--gris-oscuro);
+  border-radius: 30px;
+  transition: background-color 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+
+.slider .icon {
+  font-size: 18px;
+  user-select: none;
+}
+
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--azul);
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+
+.switch input:checked + .slider {
+  background-color: var(--azul);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(30px);
+}
+  </style>
+</head>
+<body>
+
+  <header>
+     
+
+    <h1><img src="./Img/Icon.png"  style="width: 10%;height: auto; border-radius: 100%;"> Mariano Salas Nava</h1>
+    <div><span>Cordinador de Sistemas | Soporte a usuario | Soluciones intuitivas</span></div>
+    
+     </header>
+
+<label class="switch">
+  <input type="checkbox" id="toggle-theme">
+  <span class="slider">
+    <span class="icon sun">☀️</span>
+    <span class="icon moon">🌙</span>
+  </span>
+</label>
+
+  <section>
+    <h2>Sobre mí</h2>
+    <p>Soy Coordinador de programacion en Colchas Concord. Me enfoco en brindar soporte eficiente a tiendas,
+         buscando siempre que los sistemas sean intuitivos y mejoren el flujo de trabajo.
+        Tengo 6 años de experiencia en los que eh aprendido a integrar las nececidades del usuario a los sistemas
+    haciendolos intuitivos y funcionales asi como escalables.</p>
+  </section>
+
+  <section>
+    <h2>Proyectos</h2>
+    <div class="proyecto">
+      <h3>Sistema de soporte a tiendas</h3>
+      <p>Optimización de procesos internos y soporte técnico para puntos de venta. Mejora continua de la experiencia de usuario.</p>
+    </div>
+    <div class="proyecto">
+      <h3>Automatización de reportes</h3>
+      <p>Creación de scripts para generación automática de reportes diarios/semanales para gerencia.</p>
+    </div>
+    <div class="proyecto">
+      <h3>CVC - (Capacitacion Virtual Concord)</h3>
+      <p>Plataforma de capacitacion interna.</p>
+    </div>
+    <div class="proyecto">
+      <h3>App de pedidos</h3>
+      <p>PWA que fue convertida a TWA para subirla a PlayStore.</p>
+    </div>
+    <div class="proyecto">
+      <h3>Landings para segmentacion de clientes</h3>
+      <p>Distintas landing para hacer capatacion de clientes y registro.</p>
+    </div>
+    <div class="proyecto">
+      <h3>Sistema de Gestion de calidad</h3>
+      <p>Plataforma diseñada para que los colaboradores tengan acceso a las politicas 
+        internas y a los procedimientos de una forma grafica y que puedan consultar en todo momento.</p>
+    </div>
+    <div class="proyecto">
+      <h3>Api's tipo Rest y Soap</h3>
+      <p>integracion tanto a apis propias y de 3ros para añadir procesos o pasarelas de pago.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tecnologías que manejo</h2>
+    <ul>
+      <li>Visual Studio (C#, VB.NET,C)</li>
+      <li>Android Studio (Kotlin Lv. basico)</li>
+      <li>SQL Server</li>
+      <li>MySQL</li>
+      <li>Git / GitHub</li>
+      <li>Angular</li>
+      <li>JS</li>
+      <li>PowerShell / Batch scripting</li>
+      <li>Manejo de Google devs</li>
+      <li>Soporte y analisis de sistemas ya en productivo</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <p>Puedes contactarme a través de mi correo: <strong>mariano.salas@ejemplo.com</strong></p>
+    <a href="https://github.com/NeroRonnin123" class="btn" target="_blank">Mi GitHub</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Mariano Salas Nava | Portafolio personal
+  </footer>
+
+<script>
+
+const toggle = document.getElementById('toggle-theme');
+toggle.addEventListener('change', () => {
+  document.body.classList.toggle('light-mode', toggle.checked);
+});
+</script>
+</body>
+</html>
